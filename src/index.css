@@ -1,3 +1,4 @@
+
 @import "@pxlkit/ui-kit/styles.css";
 
 :root {
@@ -21,4 +22,46 @@ body {
   min-height: 100vh;
   background-color: var(--retro-bg);
   color: var(--retro-text);
+}
+
+/* @doc WINDOW-OPEN-ANIMATION */
+@keyframes starfield-window-appear {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.starfield-window-enter {
+  animation: starfield-window-appear 160ms ease-out both;
+}
+
+/* @doc WINDOW-CLOSE-ANIMATION */
+@keyframes starfield-window-dismiss {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(6px) scale(0.97);
+  }
+}
+
+.starfield-window-exit {
+  animation: starfield-window-dismiss 140ms ease-in forwards;
+}
+
+/* Preserve animation completion when reduced motion is preferred. */
+@media (prefers-reduced-motion: reduce) {
+  .starfield-window-enter,
+  .starfield-window-exit {
+    animation-duration: 1ms;
+  }
 }
