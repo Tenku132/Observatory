@@ -148,7 +148,7 @@ function WindowShell({
         zIndex,
         pointerEvents: closing ? 'none' : 'auto',
       }}
-      className={`fixed max-h-[calc(100vh-1.5rem)] w-[calc(100vw-1.5rem)] max-w-md overflow-y-auto border-2 border-retro-border bg-retro-bg shadow-2xl ${
+      className={`fixed w-200 max-w-[calc(100vw-1.5rem)] h-(--window-height) max-h-[calc(100dvh-1.5rem)] overflow-y-auto border-2 border-retro-border bg-retro-bg shadow-2xl ${
         closing
           ? 'starfield-window-exit'
           : 'starfield-window-enter'
@@ -178,7 +178,7 @@ function WindowShell({
         </button>
       </div>
 
-      <div className="p-5 text-sm text-retro-muted">
+      <div className="p-6 font-sans text-base leading-7 text-slate-100">
         {children}
       </div>
     </section>

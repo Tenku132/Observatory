@@ -21,24 +21,27 @@ interface OpenStarWindow extends WindowPosition {
 const creditLinkClass =
   'font-medium text-retro-cyan underline decoration-retro-cyan underline-offset-4 transition-colors hover:text-[#B99CF6] hover:decoration-[#B99CF6] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-retro-cyan'
 
+
 // @doc WINDOW-INITIAL-POSITION
 function getInitialWindowPosition(
   openCount: number,
 ): WindowPosition {
-  const width = Math.min(448, window.innerWidth - 24)
+  const width = Math.min(800, window.innerWidth - 24)
+  const height = Math.min(window.innerHeight * 0.7, 620)
   const offset = (openCount % 5) * 24
 
   const maxX = Math.max(12, window.innerWidth - width - 12)
-  const maxY = Math.max(12, window.innerHeight - 200)
+  const maxY = Math.max(12, window.innerHeight - height - 12)
 
   const centeredX = (window.innerWidth - width) / 2
-  const centeredY = (window.innerHeight - 280) / 2
+  const centeredY = (window.innerHeight - height) / 2
 
   return {
     x: Math.max(12, Math.min(maxX, centeredX + offset)),
     y: Math.max(12, Math.min(maxY, centeredY + offset)),
   }
 }
+
 
 // @doc REACT-STATE
 function App() {
@@ -278,7 +281,7 @@ function App() {
                   </li>
                 </ul>
 
-                <p className="text-xs opacity-70">
+                <p className="text-sm leading-6 text-slate-300">
                   Individual asset creators and attribution
                   requirements will be documented as the final
                   assets are selected.
@@ -290,7 +293,7 @@ function App() {
                   {star.description}
                 </p>
 
-                <p className="mt-4 text-sm opacity-70">
+                <p className="mt-4 text-base leading-7 text-slate-300">
                   This section is a placeholder. We'll add the
                   complete portfolio content in a later milestone.
                 </p>
