@@ -4,6 +4,9 @@
 :root {
   font-family: "Pixelify Sans Variable", sans-serif;
   color-scheme: dark;
+
+  /* @doc WINDOW-HEIGHT */
+  --window-height: min(70dvh, 620px);
 }
 
 * {
