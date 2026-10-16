@@ -1,4 +1,3 @@
-
 import ConstellationLines from './ConstellationLines'
 import Star from './Star'
 import {
@@ -7,13 +6,13 @@ import {
 } from '../../data/constellation'
 
 interface StarMapProps {
-  selectedStarId: StarId | null
+  openStarIds: StarId[]
   onSelectStar: (starId: StarId) => void
 }
 
 // @doc STAR-MAP-INTERACTION
 function StarMap({
-  selectedStarId,
+  openStarIds,
   onSelectStar,
 }: StarMapProps) {
   return (
@@ -28,7 +27,7 @@ function StarMap({
         <Star
           key={star.id}
           star={star}
-          selected={selectedStarId === star.id}
+          selected={openStarIds.includes(star.id)}
           onSelect={() => onSelectStar(star.id)}
         />
       ))}
