@@ -1,3 +1,4 @@
+
 import {
   useId,
   useRef,
@@ -20,6 +21,7 @@ interface WindowShellProps {
   onBringToFront: () => void
   onPositionChange: (position: WindowPosition) => void
   onExitComplete: () => void
+  pinnedContent?: ReactNode
   children: ReactNode
 }
 
@@ -41,6 +43,7 @@ function WindowShell({
   onBringToFront,
   onPositionChange,
   onExitComplete,
+  pinnedContent,
   children,
 }: WindowShellProps) {
   const titleId = useId()
@@ -82,7 +85,10 @@ function WindowShell({
     if (!panel) return
 
     // Keep the window within the viewport while dragging.
-    const maxX = Math.max(8, window.innerWidth - panel.offsetWidth - 8)
+    const maxX = Math.max(
+      8,
+      window.innerWidth - panel.offsetWidth - 8,
+    )
     const maxY = Math.max(8, window.innerHeight - 48)
 
     const x = Math.max(
@@ -148,14 +154,15 @@ function WindowShell({
         zIndex,
         pointerEvents: closing ? 'none' : 'auto',
       }}
-      className={`fixed w-200 max-w-[calc(100vw-1.5rem)] h-(--window-height) max-h-[calc(100dvh-1.5rem)] overflow-y-auto border-2 border-retro-border bg-retro-bg shadow-2xl ${
+      className={`fixed flex w-200 max-w-[calc(100vw-1.5rem)] h-(--window-height) max-h-[calc(100dvh-1.5rem)] flex-col overflow-hidden border-2 border-retro-border bg-retro-bg shadow-2xl ${
         closing
           ? 'starfield-window-exit'
           : 'starfield-window-enter'
       }`}
     >
+      {/* @doc WINDOW-TITLE-BAR */}
       <div
-        className="flex cursor-grab touch-none select-none items-center justify-between border-b-2 border-retro-border bg-retro-surface/60 px-3 py-2 active:cursor-grabbing"
+        className="flex shrink-0 cursor-grab touch-none select-none items-center justify-between border-b-2 border-retro-border bg-retro-surface/60 px-3 py-2 active:cursor-grabbing"
         onPointerDown={handleDragStart}
         onPointerMove={handleDragMove}
         onPointerUp={handleDragEnd}
@@ -178,7 +185,20 @@ function WindowShell({
         </button>
       </div>
 
-      <div className="p-6 font-sans text-base leading-7 text-slate-100">
+      {/* @doc WINDOW-PINNED-CONTENT */}
+      {pinnedContent != null && (
+        <div className="shrink-0 border-b-2 border-retro-border bg-retro-bg">
+          {pinnedContent}
+        </div>
+      )}
+
+      {/* @doc WINDOW-SCROLLABLE-CONTENT */}
+      <div
+        role="region"
+        aria-label={`${title} content`}
+        tabIndex={0}
+        className="min-h-0 flex-1 overflow-y-auto overscroll-contain p-6 font-sans text-base leading-7 text-slate-100"
+      >
         {children}
       </div>
     </section>
