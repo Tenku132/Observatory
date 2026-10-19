@@ -21,7 +21,6 @@ interface OpenStarWindow extends WindowPosition {
 const creditLinkClass =
   'font-medium text-retro-cyan underline decoration-retro-cyan underline-offset-4 transition-colors hover:text-[#B99CF6] hover:decoration-[#B99CF6] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-retro-cyan'
 
-
 // @doc WINDOW-INITIAL-POSITION
 function getInitialWindowPosition(
   openCount: number,
@@ -42,6 +41,259 @@ function getInitialWindowPosition(
   }
 }
 
+type PortfolioSectionId = Exclude<StarId, 'credits'>
+
+// @doc STAR-SECTION-TEST-CONTENT
+// Renders temporary content for each portfolio section.
+function StarSectionContent({
+  starId,
+}: {
+  starId: PortfolioSectionId
+}) {
+  switch (starId) {
+    case 'about':
+      return (
+        <div className="space-y-6">
+          {/* @doc ABOUT-INTRODUCTION */}
+          <section className="space-y-2">
+            <h3 className="font-pixel text-sm text-retro-cyan">
+              INTRODUCTION
+            </h3>
+
+            <p>
+              Welcome to my digital universe. I'm a developer
+              interested in building useful applications and
+              creating clear, accessible interfaces.
+            </p>
+
+            <p className="text-slate-300">
+              This is temporary content. My final introduction,
+              background, and professional experience will go here.
+            </p>
+          </section>
+
+          {/* @doc ABOUT-DEVELOPMENT-FOCUS */}
+          <section className="space-y-2">
+            <h3 className="font-pixel text-sm text-retro-cyan">
+              DEVELOPMENT FOCUS
+            </h3>
+
+            <ul className="list-disc space-y-2 pl-5">
+              <li>Frontend interface development</li>
+              <li>Backend and API integration</li>
+              <li>Database-driven applications</li>
+              <li>Reusable and maintainable code</li>
+            </ul>
+          </section>
+
+          {/* @doc ABOUT-BACKGROUND */}
+          <section className="space-y-2">
+            <h3 className="font-pixel text-sm text-retro-cyan">
+              BACKGROUND
+            </h3>
+
+            <p>
+              This section will introduce my development journey,
+              relevant experience, education, and contributions
+              to projects.
+            </p>
+          </section>
+
+          {/* @doc ABOUT-GOALS */}
+          <section className="space-y-2">
+            <h3 className="font-pixel text-sm text-retro-cyan">
+              FUTURE GOALS
+            </h3>
+
+            <p>
+              Continue improving my full-stack skills, build
+              practical applications, and create well-documented
+              projects that demonstrate my abilities.
+            </p>
+
+            <p className="text-slate-300">
+              Additional content is included to test scrolling
+              while the profile remains visible.
+            </p>
+
+            <p className="text-slate-300">
+              As this portfolio grows, this area can contain
+              more detail about my experience and approach
+              to development.
+            </p>
+          </section>
+        </div>
+      )
+
+    case 'projects':
+      return (
+        <div className="space-y-5">
+          <article className="space-y-2 border border-retro-border bg-retro-surface/30 p-4">
+            <p className="text-xs tracking-widest text-retro-cyan">
+              PROJECT 01
+            </p>
+
+            <h3 className="font-pixel text-sm text-[#B99CF6]">
+              Starfield Portfolio
+            </h3>
+
+            <p>
+              An interactive pixel-art portfolio where each
+              star reveals a different section.
+            </p>
+
+            <p className="text-sm text-slate-300">
+              Test technologies: React, TypeScript, Vite,
+              and Tailwind CSS.
+            </p>
+          </article>
+
+          <article className="space-y-2 border border-retro-border bg-retro-surface/30 p-4">
+            <p className="text-xs tracking-widest text-retro-cyan">
+              PROJECT 02
+            </p>
+
+            <h3 className="font-pixel text-sm text-[#B99CF6]">
+              Mapping Application
+            </h3>
+
+            <p>
+              Placeholder for a mapping application with
+              interactive locations, map navigation, and
+              route information.
+            </p>
+
+            <p className="text-sm text-slate-300">
+              Replace this description with a real project's
+              goals, implementation, and your contribution.
+            </p>
+          </article>
+
+          <article className="space-y-2 border border-retro-border bg-retro-surface/30 p-4">
+            <p className="text-xs tracking-widest text-retro-cyan">
+              PROJECT 03
+            </p>
+
+            <h3 className="font-pixel text-sm text-[#B99CF6]">
+              Dashboard Application
+            </h3>
+
+            <p>
+              Placeholder for an application that organizes
+              information into clear, reusable interface
+              components.
+            </p>
+
+            <p className="text-sm text-slate-300">
+              A repository link and live demo can be added
+              when the final project details are ready.
+            </p>
+          </article>
+        </div>
+      )
+
+    case 'skills':
+      return (
+        <div className="space-y-5">
+          <p>
+            These categories are sample content for testing
+            how grouped information appears inside a window.
+          </p>
+
+          <section className="space-y-2 border border-retro-border p-4">
+            <h3 className="font-pixel text-sm text-retro-cyan">
+              FRONTEND
+            </h3>
+
+            <ul className="list-disc space-y-1 pl-5">
+              <li>HTML and CSS</li>
+              <li>JavaScript and TypeScript</li>
+              <li>React</li>
+              <li>Tailwind CSS</li>
+              <li>Responsive layouts</li>
+            </ul>
+          </section>
+
+          <section className="space-y-2 border border-retro-border p-4">
+            <h3 className="font-pixel text-sm text-retro-cyan">
+              BACKEND
+            </h3>
+
+            <ul className="list-disc space-y-1 pl-5">
+              <li>PHP and Laravel</li>
+              <li>REST API fundamentals</li>
+              <li>Database integration</li>
+              <li>Request and response handling</li>
+            </ul>
+          </section>
+
+          <section className="space-y-2 border border-retro-border p-4">
+            <h3 className="font-pixel text-sm text-retro-cyan">
+              DEVELOPMENT TOOLS
+            </h3>
+
+            <ul className="list-disc space-y-1 pl-5">
+              <li>Git and GitHub</li>
+              <li>VS Code</li>
+              <li>Vite and npm</li>
+              <li>Browser debugging tools</li>
+            </ul>
+          </section>
+
+          <p className="text-sm text-slate-400">
+            These are example categories, not a final
+            assessment of proficiency.
+          </p>
+        </div>
+      )
+
+    case 'contact':
+      return (
+        <div className="space-y-5">
+          <p>
+            Have a project in mind or want to discuss a
+            development opportunity? This section will
+            contain the best ways to reach me.
+          </p>
+
+          <section className="space-y-2 border border-retro-border bg-retro-surface/30 p-4">
+            <h3 className="font-pixel text-sm text-retro-cyan">
+              EMAIL
+            </h3>
+
+            <p className="text-slate-300">
+              Your public email address will go here.
+            </p>
+          </section>
+
+          <section className="space-y-2 border border-retro-border bg-retro-surface/30 p-4">
+            <h3 className="font-pixel text-sm text-retro-cyan">
+              GITHUB
+            </h3>
+
+            <p className="text-slate-300">
+              Add your public GitHub profile and selected
+              repositories here.
+            </p>
+          </section>
+
+          <section className="space-y-2 border border-retro-border bg-retro-surface/30 p-4">
+            <h3 className="font-pixel text-sm text-retro-cyan">
+              OPPORTUNITIES
+            </h3>
+
+            <p>
+              Add the roles, collaborations, or projects
+              you are interested in.
+            </p>
+          </section>
+        </div>
+      )
+
+    default:
+      return null
+  }
+}
 
 // @doc REACT-STATE
 function App() {
@@ -140,7 +392,9 @@ function App() {
     )
   }
 
-  const openStarIds = openWindows.filter((item) => !item.isClosing).map((item) => item.id)
+  const openStarIds = openWindows
+    .filter((item) => !item.isClosing)
+    .map((item) => item.id)
 
   return (
     <main className="relative isolate min-h-screen overflow-hidden bg-[#080B1E] text-white">
@@ -206,6 +460,37 @@ function App() {
             }
             onExitComplete={() =>
               removeClosedWindow(openWindow.id)
+            }
+            pinnedContent={
+              star.id === 'about' ? (
+                <section className="flex items-center gap-4 px-6 py-4">
+                  <div
+                    role="img"
+                    aria-label="Temporary profile avatar for Ian Diaz"
+                    className="flex h-20 w-20 shrink-0 items-center justify-center border-2 border-retro-border bg-retro-surface font-pixel text-xl text-retro-cyan"
+                  >
+                    ID
+                  </div>
+
+                  <div className="min-w-0">
+                    <p className="text-xs font-semibold tracking-widest text-[#B99CF6]">
+                      DEVELOPER PROFILE
+                    </p>
+
+                    <h3 className="mt-1 font-pixel text-lg text-retro-green">
+                      Ian Diaz
+                    </h3>
+
+                    <p className="text-sm leading-5 text-slate-200">
+                      Full-Stack Developer
+                    </p>
+
+                    <p className="mt-1 text-xs leading-5 text-retro-cyan">
+                      React · TypeScript · Laravel
+                    </p>
+                  </div>
+                </section>
+              ) : null
             }
           >
             {star.id === 'credits' ? (
@@ -288,16 +573,7 @@ function App() {
                 </p>
               </div>
             ) : (
-              <>
-                <p className="leading-relaxed">
-                  {star.description}
-                </p>
-
-                <p className="mt-4 text-base leading-7 text-slate-300">
-                  This section is a placeholder. We'll add the
-                  complete portfolio content in a later milestone.
-                </p>
-              </>
+              <StarSectionContent starId={star.id} />
             )}
           </WindowShell>
         )
