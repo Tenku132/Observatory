@@ -1,4 +1,4 @@
-# Tenku's Starboard
+# Observatory
 
 An interactive pixel-art portfolio. Each star in a hand-placed constellation opens a draggable window containing a section of the portfolio: About, Projects, Skills, Contact, and Credits.
 
@@ -18,7 +18,7 @@ React 19 · TypeScript · Vite · Tailwind CSS v4 · Pxlkit (`@pxlkit/ui-kit`) �
 
 ## Getting Started
 
-Requires Node.js 22+ and npm.
+Requires Node.js 22.12.0+ and npm.
 
 ```bash
 npm install
@@ -27,12 +27,12 @@ npm run dev
 
 Then open the local URL Vite prints (usually http://localhost:5173/).
 
-| Script | Purpose |
-| --- | --- |
-| `npm run dev` | Start the development server |
-| `npm run build` | Type-check and create a production build in `dist/` |
-| `npm run lint` | Run ESLint |
-| `npm run preview` | Preview the production build locally |
+| Script            | Purpose                                             |
+| ----------------- | --------------------------------------------------- |
+| `npm run dev`     | Start the development server                        |
+| `npm run build`   | Type-check and create a production build in `dist/` |
+| `npm run lint`    | Run ESLint                                          |
+| `npm run preview` | Preview the production build locally                |
 
 ## Project Structure
 
@@ -61,4 +61,5 @@ public/assets/           backgrounds, icons (and audio later)
 Libraries and assets are listed in the Credits window of the site: Pxlkit, use-sound, Pixabay sound effects, Space Spheremaps pixel-art starfields, and Pixelify Sans via Fontsource.
 
 ## License
+
 MIT. See the `LICENSE` file.

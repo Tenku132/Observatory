@@ -1,9 +1,4 @@
-export type StarId =
-  | 'about'
-  | 'projects'
-  | 'skills'
-  | 'contact'
-  | 'credits'
+export type StarId = 'about' | 'projects' | 'skills' | 'contact' | 'credits'
 
 export interface StarDefinition {
   id: StarId
@@ -47,9 +42,7 @@ export const stars: StarDefinition[] = [
 ]
 
 // @doc SVG-CONNECTIONS
-export const constellationConnections: Array<
-  [StarId, StarId]
-> = [
+export const constellationConnections: Array<[StarId, StarId]> = [
   ['about', 'projects'],
   ['projects', 'skills'],
   ['projects', 'contact'],

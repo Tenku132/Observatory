@@ -5,8 +5,8 @@ function SkillsWindow() {
   return (
     <div className="space-y-5">
       <p>
-        These categories are sample content for testing how grouped
-        information appears inside a window.
+        These categories are sample content for testing how grouped information
+        appears inside a window.
       </p>
 
       {skillGroups.map((group) => (

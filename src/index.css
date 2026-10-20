@@ -1,8 +1,7 @@
-
-@import "@pxlkit/ui-kit/styles.css";
+@import '@pxlkit/ui-kit/styles.css';
 
 :root {
-  font-family: "Pixelify Sans Variable", sans-serif;
+  font-family: 'Pixelify Sans Variable', sans-serif;
   color-scheme: dark;
 
   /* @doc WINDOW-HEIGHT */
