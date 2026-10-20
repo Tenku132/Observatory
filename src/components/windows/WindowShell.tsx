@@ -173,6 +173,7 @@ function WindowShell({
       <div
         role="region"
         aria-label={`${title} content`}
+        // eslint-disable-next-line jsx-a11y-x/no-noninteractive-tabindex -- scrollable region must be keyboard focusable (WCAG 2.1.1)
         tabIndex={0}
         className="min-h-0 flex-1 overflow-y-auto overscroll-contain p-6 font-sans text-base leading-7 text-slate-100"
       >
