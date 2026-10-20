@@ -12,7 +12,9 @@ function ContactWindow() {
 
       <section className={sectionClass}>
         <h3 className="font-pixel text-sm text-retro-cyan">EMAIL</h3>
-        <p className="text-slate-300">Your public email address will go here.</p>
+        <p className="text-slate-300">
+          Your public email address will go here.
+        </p>
       </section>
 
       <section className={sectionClass}>

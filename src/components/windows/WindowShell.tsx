@@ -1,4 +1,3 @@
-
 import {
   useId,
   useRef,
@@ -54,10 +53,7 @@ function WindowShell({
     if (event.button !== 0 || closing) return
 
     // The close button should click normally, not start a drag.
-    if (
-      event.target instanceof Element &&
-      event.target.closest('button')
-    ) {
+    if (event.target instanceof Element && event.target.closest('button')) {
       return
     }
 
@@ -85,26 +81,17 @@ function WindowShell({
     if (!panel) return
 
     // Keep the window within the viewport while dragging.
-    const maxX = Math.max(
-      8,
-      window.innerWidth - panel.offsetWidth - 8,
-    )
+    const maxX = Math.max(8, window.innerWidth - panel.offsetWidth - 8)
     const maxY = Math.max(8, window.innerHeight - 48)
 
     const x = Math.max(
       8,
-      Math.min(
-        maxX,
-        drag.originalX + event.clientX - drag.startX,
-      ),
+      Math.min(maxX, drag.originalX + event.clientX - drag.startX),
     )
 
     const y = Math.max(
       8,
-      Math.min(
-        maxY,
-        drag.originalY + event.clientY - drag.startY,
-      ),
+      Math.min(maxY, drag.originalY + event.clientY - drag.startY),
     )
 
     onPositionChange({ x, y })
@@ -121,9 +108,7 @@ function WindowShell({
   }
 
   // @doc WINDOW-CLOSE-ANIMATION
-  const handleAnimationEnd = (
-    event: AnimationEvent<HTMLElement>,
-  ) => {
+  const handleAnimationEnd = (event: AnimationEvent<HTMLElement>) => {
     // Ignore animation events bubbling up from child elements.
     if (closing && event.target === event.currentTarget) {
       onExitComplete()
@@ -138,10 +123,7 @@ function WindowShell({
       aria-labelledby={titleId}
       onPointerDown={(event) => {
         // Let close-button clicks finish without restacking mid-click.
-        if (
-          event.target instanceof Element &&
-          event.target.closest('button')
-        ) {
+        if (event.target instanceof Element && event.target.closest('button')) {
           return
         }
 
@@ -155,9 +137,7 @@ function WindowShell({
         pointerEvents: closing ? 'none' : 'auto',
       }}
       className={`fixed flex w-200 max-w-[calc(100vw-1.5rem)] h-(--window-height) max-h-[calc(100dvh-1.5rem)] flex-col overflow-hidden border-2 border-retro-border bg-retro-bg shadow-2xl ${
-        closing
-          ? 'starfield-window-exit'
-          : 'starfield-window-enter'
+        closing ? 'starfield-window-exit' : 'starfield-window-enter'
       }`}
     >
       {/* @doc WINDOW-TITLE-BAR */}
@@ -168,10 +148,7 @@ function WindowShell({
         onPointerUp={handleDragEnd}
         onPointerCancel={handleDragEnd}
       >
-        <h2
-          id={titleId}
-          className="font-pixel text-[11px] text-retro-green"
-        >
+        <h2 id={titleId} className="font-pixel text-[11px] text-retro-green">
           {title.toUpperCase()}
         </h2>
 
@@ -196,6 +173,7 @@ function WindowShell({
       <div
         role="region"
         aria-label={`${title} content`}
+        // eslint-disable-next-line jsx-a11y-x/no-noninteractive-tabindex -- scrollable region must be keyboard focusable (WCAG 2.1.1)
         tabIndex={0}
         className="min-h-0 flex-1 overflow-y-auto overscroll-contain p-6 font-sans text-base leading-7 text-slate-100"
       >

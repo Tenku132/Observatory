@@ -1,14 +1,8 @@
-
-import {
-  constellationConnections,
-  stars,
-} from '../../data/constellation'
+import { constellationConnections, stars } from '../../data/constellation'
 
 // @doc SVG-CONNECTIONS
 function ConstellationLines() {
-  const starById = new Map(
-    stars.map((star) => [star.id, star]),
-  )
+  const starById = new Map(stars.map((star) => [star.id, star]))
 
   return (
     <svg
