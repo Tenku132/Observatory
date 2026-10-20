@@ -1,3 +1,5 @@
+import { profile } from '../../data/profile'
+
 // @doc ABOUT-WINDOW
 // Pinned profile header (stays visible) and scrolling content.
 
@@ -6,19 +8,21 @@ export function AboutWindowHeader() {
     <section className="flex items-center gap-4 px-6 py-4">
       <div
         role="img"
-        aria-label="Temporary profile avatar for Ian Diaz"
+        aria-label={`Temporary profile avatar for ${profile.name}`}
         className="flex h-20 w-20 shrink-0 items-center justify-center border-2 border-retro-border bg-retro-surface font-pixel text-xl text-retro-cyan"
       >
-        ID
+        {profile.initials}
       </div>
       <div className="min-w-0">
-        <p className="text-xs font-semibold tracking-widest text-[#B99CF6]">
+        <p className="text-xs font-semibold tracking-widest text-nebula">
           DEVELOPER PROFILE
         </p>
-        <h3 className="mt-1 font-pixel text-lg text-retro-green">Ian Diaz</h3>
-        <p className="text-sm leading-5 text-slate-200">Full-Stack Developer</p>
+        <h3 className="mt-1 font-pixel text-lg text-retro-green">
+          {profile.name}
+        </h3>
+        <p className="text-sm leading-5 text-slate-200">{profile.title}</p>
         <p className="mt-1 text-xs leading-5 text-retro-cyan">
-          React · TypeScript · Laravel
+          {profile.stack.join(' · ')}
         </p>
       </div>
     </section>
