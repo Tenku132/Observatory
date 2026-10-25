@@ -22,8 +22,10 @@ function Star({ star, selected, onSelect }: StarProps) {
         left: `${star.x}%`,
         top: `${star.y}%`,
       }}
-      className={`group absolute z-10 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-2 rounded-md px-2 py-2 text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#DCD7FF] ${
-        selected ? 'scale-110 drop-shadow-[0_0_14px_rgba(185,156,246,0.95)]' : ''
+      className={`group absolute z-10 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-2 rounded-md px-2 py-2 text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-glint ${
+        selected
+          ? 'scale-110 drop-shadow-[0_0_14px_rgba(185,156,246,0.95)]'
+          : ''
       }`}
     >
       <img
@@ -32,7 +34,7 @@ function Star({ star, selected, onSelect }: StarProps) {
         draggable={false}
         className="h-10 w-10 select-none object-contain transition duration-150 group-hover:scale-110 group-focus-visible:scale-110 group-hover:drop-shadow-[0_0_12px_rgba(185,156,246,0.95)] sm:h-12 sm:w-12"
       />
-      <span className="whitespace-nowrap text-[11px] font-semibold tracking-widest text-[#F4F0FF] drop-shadow-[0_1px_3px_rgba(0,0,0,1)] sm:text-xs">
+      <span className="whitespace-nowrap text-[11px] font-semibold tracking-widest text-starlight drop-shadow-[0_1px_3px_rgba(0,0,0,1)] sm:text-xs">
         {star.label.toUpperCase()}
       </span>
     </button>
