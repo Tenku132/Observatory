@@ -6,6 +6,8 @@ import {
   type ReactNode,
 } from 'react'
 
+import { windowCssSize } from './windowLayout'
+
 export interface WindowPosition {
   x: number
   y: number
@@ -135,8 +137,9 @@ function WindowShell({
         top: position.y,
         zIndex,
         pointerEvents: closing ? 'none' : 'auto',
+        ...windowCssSize,
       }}
-      className={`fixed flex w-200 max-w-[calc(100vw-1.5rem)] h-(--window-height) max-h-[calc(100dvh-1.5rem)] flex-col overflow-hidden border-2 border-retro-border bg-retro-bg shadow-2xl ${
+      className={`fixed flex flex-col overflow-hidden border-2 border-retro-border bg-retro-bg shadow-2xl ${
         closing ? 'starfield-window-exit' : 'starfield-window-enter'
       }`}
     >

@@ -1,7 +1,5 @@
 import { credits } from '../../data/credits'
-
-const linkClass =
-  'font-medium text-retro-cyan underline decoration-retro-cyan underline-offset-4 transition-colors hover:text-[#B99CF6] hover:decoration-[#B99CF6] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-retro-cyan'
+import ExternalLink from '../ui/ExternalLink'
 
 // @doc CREDITS-WINDOW
 function CreditsWindow() {
@@ -12,25 +10,13 @@ function CreditsWindow() {
       <ul className="list-disc space-y-3 pl-5">
         {credits.map((credit) => (
           <li key={credit.name}>
-            <a
-              className={linkClass}
-              href={credit.url}
-              target="_blank"
-              rel="noreferrer"
-            >
-              {credit.name}
-            </a>
+            <ExternalLink href={credit.url}>{credit.name}</ExternalLink>
             {credit.extra && (
               <>
                 {' — '}
-                <a
-                  className={linkClass}
-                  href={credit.extra.url}
-                  target="_blank"
-                  rel="noreferrer"
-                >
+                <ExternalLink href={credit.extra.url}>
                   {credit.extra.label}
-                </a>
+                </ExternalLink>
               </>
             )}
           </li>

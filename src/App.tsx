@@ -3,6 +3,7 @@ import StarMap from './components/constellation/StarMap'
 import WindowShell from './components/windows/WindowShell'
 import { windowContent } from './components/windows/windowContent'
 import { stars } from './data/constellation'
+import { profile } from './data/profile'
 import { useWindowManager } from './hooks/useWindowManager'
 
 function App() {
@@ -17,25 +18,23 @@ function App() {
   } = useWindowManager()
 
   return (
-    <main className="relative isolate min-h-screen overflow-hidden bg-[#080B1E] text-white">
+    <main className="relative isolate min-h-screen overflow-hidden bg-void text-white">
       <StarfieldBackground />
 
       <div className="relative z-10 mx-auto grid min-h-screen max-w-[1600px] grid-cols-1 lg:grid-cols-[0.85fr_1.15fr]">
         <section className="flex min-h-[35vh] flex-col justify-center px-6 py-10 sm:px-12 lg:min-h-screen">
-          <p className="mb-4 text-xs font-semibold tracking-[0.3em] text-[#B99CF6]">
-            MY DIGITAL UNIVERSE
-          </p>
-          <h1 className="max-w-xl text-4xl font-bold leading-tight text-[#F4F0FF] sm:text-6xl lg:text-7xl">
-            Ian Diaz
+          <h1 className="text-5xl leading-tight text-retro-cyan sm:text-6xl lg:text-7xl">
+            Hi! I’m {profile.firstName}
           </h1>
-          <p className="mt-1 text-sm font-semibold tracking-wide text-retro-cyan sm:text-base">
-            Full-Stack Developer
+          <p className="mt-3 text-lg lowercase text-starlight sm:text-xl">
+            {profile.title}
           </p>
-          <p className="mt-6 max-w-md text-sm leading-7 text-slate-200 sm:text-base">
-            Explore my universe through its stars.
+          <p className="mt-2 text-sm text-slate-300 sm:text-base">
+            {profile.stack.join(' · ')}
           </p>
-          <p className="mt-5 text-xs tracking-widest text-[#B99CF6]">
-            SELECT A STAR TO EXPLORE
+          <p className="mt-8 text-xs tracking-widest text-nebula">
+            <span aria-hidden="true">✦ </span>
+            PICK A STAR TO EXPLORE
           </p>
         </section>
 

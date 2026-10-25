@@ -1,6 +1,12 @@
 import { useState } from 'react'
 import type { StarId } from '../data/constellation'
 import type { WindowPosition } from '../components/windows/WindowShell'
+import {
+  WINDOW_HEIGHT_PERCENT,
+  WINDOW_MARGIN,
+  WINDOW_MAX_HEIGHT,
+  WINDOW_MAX_WIDTH,
+} from '../components/windows/windowLayout'
 
 export interface OpenStarWindow extends WindowPosition {
   id: StarId
@@ -10,18 +16,30 @@ export interface OpenStarWindow extends WindowPosition {
 
 // @doc WINDOW-INITIAL-POSITION
 function getInitialWindowPosition(openCount: number): WindowPosition {
-  const width = Math.min(800, window.innerWidth - 24)
-  const height = Math.min(window.innerHeight * 0.7, 620)
+  const width = Math.min(
+    WINDOW_MAX_WIDTH,
+    window.innerWidth - WINDOW_MARGIN * 2,
+  )
+  const height = Math.min(
+    window.innerHeight * (WINDOW_HEIGHT_PERCENT / 100),
+    WINDOW_MAX_HEIGHT,
+  )
   const offset = (openCount % 5) * 24
 
-  const maxX = Math.max(12, window.innerWidth - width - 12)
-  const maxY = Math.max(12, window.innerHeight - height - 12)
+  const maxX = Math.max(
+    WINDOW_MARGIN,
+    window.innerWidth - width - WINDOW_MARGIN,
+  )
+  const maxY = Math.max(
+    WINDOW_MARGIN,
+    window.innerHeight - height - WINDOW_MARGIN,
+  )
   const centeredX = (window.innerWidth - width) / 2
   const centeredY = (window.innerHeight - height) / 2
 
   return {
-    x: Math.max(12, Math.min(maxX, centeredX + offset)),
-    y: Math.max(12, Math.min(maxY, centeredY + offset)),
+    x: Math.max(WINDOW_MARGIN, Math.min(maxX, centeredX + offset)),
+    y: Math.max(WINDOW_MARGIN, Math.min(maxY, centeredY + offset)),
   }
 }
 
