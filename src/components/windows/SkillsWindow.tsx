@@ -6,8 +6,8 @@ function SkillsWindow() {
   return (
     <div className="space-y-5">
       <p>
-        These categories are sample content for testing how grouped information
-        appears inside a window.
+        The tools and technologies I’ve used in my coursework, capstone,
+        internship, and personal projects.
       </p>
 
       {skillGroups.map((group) => (
@@ -22,10 +22,6 @@ function SkillsWindow() {
           </ul>
         </Card>
       ))}
-
-      <p className="text-sm text-slate-400">
-        These are example categories, not a final assessment of proficiency.
-      </p>
     </div>
   )
 }

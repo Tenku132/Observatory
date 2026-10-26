@@ -3,7 +3,7 @@ import Card from '../ui/Card'
 import ExternalLink from '../ui/ExternalLink'
 
 // @doc PROJECTS-WINDOW
-// Renders one card per entry in data/projects.ts.
+// Renders one case-study card per entry in data/projects.ts.
 function ProjectsWindow() {
   return (
     <div className="space-y-5">
@@ -13,15 +13,22 @@ function ProjectsWindow() {
             PROJECT {String(index + 1).padStart(2, '0')}
           </p>
           <h3 className="font-pixel text-sm text-nebula">{project.title}</h3>
+          <p className="text-sm text-slate-300">
+            {project.role} · {project.period}
+          </p>
           <p>{project.description}</p>
 
-          {project.technologies.length > 0 && (
-            <p className="text-sm text-slate-300">
-              Technologies: {project.technologies.join(', ')}
-            </p>
-          )}
+          <ul className="list-disc space-y-1 pl-5">
+            {project.highlights.map((highlight) => (
+              <li key={highlight}>{highlight}</li>
+            ))}
+          </ul>
+
+          <p className="text-sm text-slate-300">
+            Technologies: {project.technologies.join(', ')}
+          </p>
           {project.note && (
-            <p className="text-sm text-slate-300">{project.note}</p>
+            <p className="text-sm text-slate-400">{project.note}</p>
           )}
 
           {(project.repository || project.liveUrl) && (
