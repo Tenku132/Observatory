@@ -3,6 +3,7 @@ updates:
   # Your npm packages (everything in package.json)
   - package-ecosystem: npm
     directory: /
+    target-branch: dev
     schedule:
       interval: weekly
       day: monday
