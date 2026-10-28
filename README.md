@@ -4,7 +4,7 @@
 
 An interactive pixel-art portfolio. Each star in a hand-placed constellation opens a draggable window containing a section of the portfolio: About, Projects, Skills, Contact, and Credits.
 
-> **Status:** Work in progress. The interaction system is working; most section content is still placeholder text.
+> **Status:** Work in progress. The interaction system and all section content are in place. An animated starfield background, window focus management, and a mobile window layout are planned.
 
 ## Features
 
@@ -14,6 +14,8 @@ An interactive pixel-art portfolio. Each star in a hand-placed constellation ope
 - Windows are labelled dialogs, scrollable content is keyboard-focusable, and external links announce that they open in a new tab.
 - Pixel-art look using Pxlkit's theme and the Pixelify Sans font.
 - Reduced-motion preference is respected for window animations.
+- Real content: an About window with photo, case-study style Projects, grouped Skills, and Contact links.
+- Lighthouse scores of 99 to 100 in every category on desktop and mobile (measured on the production preview).
 
 ## Tech Stack
 
@@ -53,6 +55,12 @@ npm run format && npm run lint && npm test && npm run build
 
 GitHub Actions runs the same checks (lint, format check, tests, build) on every push to `main` and on every pull request. Dependabot opens weekly pull requests for npm updates and monthly ones for GitHub Actions updates, so CI verifies each one before it is merged.
 
+## Branching and Workflow
+
+- `main` is the stable backup and is only updated from `dev` when a milestone is solid.
+- `dev` is the integration branch. Feature branches (`feat/*`, `chore/*`, `refactor/*`, `perf/*`) are merged into it by pull request.
+- GitHub Actions runs on every pull request and on pushes to the integration branches, and Dependabot opens its update pull requests against `dev`.
+
 ## Project Structure
 
 ```text
@@ -73,10 +81,11 @@ public/assets/           backgrounds, icons (and audio later)
 
 ## Adding or Changing Content
 
-- **Change your name, title, or stack:** edit `src/data/profile.ts`. The SEO tags in `index.html` are static, so update them there too.
-- **Move or add a star:** edit `src/data/constellation.ts`.
-- **Edit a section:** edit its file in `src/components/windows/`.
-- **Add a project:** add an entry to `src/data/projects.ts`.
+- **Name, title, stack, photo, or contact links:** edit `src/data/profile.ts`. The SEO tags in `index.html` are static, so update them there too.
+- **Profile photo:** replace `public/assets/icons/Gradpic.webp` (a square WebP, about 256×256 pixels, keeps the page fast).
+- **Add a project:** add an entry to `src/data/projects.ts` with an id, title, role, period, description, highlights, and technologies. The note, repository, and live demo link are optional.
+- **Edit skills:** edit the groups in `src/data/skills.ts`.
+- **Move or add a star:** edit `src/data/constellation.ts`, then add its window content in `windowContent.tsx`.
 - **Change theme colors:** edit the `@theme` block in `src/index.css`.
 - **Change window size:** edit `src/components/windows/windowLayout.ts`.
 
