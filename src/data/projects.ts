@@ -39,7 +39,7 @@ export const projects: Project[] = [
       'A web and Android marketplace that lets smallholder farmers in CALABARZON sell directly to buyers without middlemen.',
     highlights: [
       'Built back-end features for multi-role access, messaging, push notifications, and analytics.',
-      'Co-led a two-person team, owning the back-end and contributing to front-end screens.',
+      'Co-led a four-person team, owning the back-end and contributing to front-end screens.',
       'Planned the project with Agile iterations, Figma designs, an ERD, and data flow diagrams.',
       'Wrote unit and integration tests.',
     ],
