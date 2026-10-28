@@ -90,11 +90,6 @@ export function AboutWindowContent() {
           an experienced team, ship real features, and take on larger parts of a
           system over time.
         </p>
-        <p>
-          Meanwhile, I’m planning a cleaner, improved version of NutriApp, and I
-          built this portfolio from scratch to practice accessibility, testing,
-          and automated checks.
-        </p>
       </section>
     </div>
   )
