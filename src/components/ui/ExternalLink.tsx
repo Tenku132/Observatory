@@ -6,13 +6,19 @@ const linkClass =
 interface ExternalLinkProps {
   href: string
   children: ReactNode
+  newTab?: boolean
 }
 
-function ExternalLink({ href, children }: ExternalLinkProps) {
+// Opens in a new tab by default. Pass newTab={false} for mailto links.
+function ExternalLink({ href, children, newTab = true }: ExternalLinkProps) {
   return (
-    <a className={linkClass} href={href} target="_blank" rel="noreferrer">
+    <a
+      className={linkClass}
+      href={href}
+      {...(newTab ? { target: '_blank', rel: 'noreferrer' } : {})}
+    >
       {children}
-      <span className="sr-only"> (opens in a new tab)</span>
+      {newTab && <span className="sr-only"> (opens in a new tab)</span>}
     </a>
   )
 }
