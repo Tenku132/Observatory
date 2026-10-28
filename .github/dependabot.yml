@@ -1,0 +1,29 @@
+version: 2
+updates:
+  # Your npm packages (everything in package.json)
+  - package-ecosystem: npm
+    directory: /
+    target-branch: dev
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+    # Bundle all minor/patch updates into ONE pull request per week.
+    # Major updates (breaking changes) still arrive as separate PRs.
+    groups:
+      minor-and-patch:
+        update-types:
+          - minor
+          - patch
+    commit-message:
+      prefix: chore
+      include: scope
+
+  # The versions of actions used in your CI workflow (actions/checkout, etc.)
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    commit-message:
+      prefix: chore
+      include: scope

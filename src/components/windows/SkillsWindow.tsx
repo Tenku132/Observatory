@@ -1,19 +1,17 @@
 import { skillGroups } from '../../data/skills'
+import Card from '../ui/Card'
 
 // @doc SKILLS-WINDOW
 function SkillsWindow() {
   return (
     <div className="space-y-5">
       <p>
-        These categories are sample content for testing how grouped
-        information appears inside a window.
+        The tools and technologies I’ve used in my coursework, capstone,
+        internship, and personal projects.
       </p>
 
       {skillGroups.map((group) => (
-        <section
-          key={group.title}
-          className="space-y-2 border border-retro-border p-4"
-        >
+        <Card key={group.title}>
           <h3 className="font-pixel text-sm text-retro-cyan">
             {group.title.toUpperCase()}
           </h3>
@@ -22,12 +20,8 @@ function SkillsWindow() {
               <li key={item}>{item}</li>
             ))}
           </ul>
-        </section>
+        </Card>
       ))}
-
-      <p className="text-sm text-slate-400">
-        These are example categories, not a final assessment of proficiency.
-      </p>
     </div>
   )
 }

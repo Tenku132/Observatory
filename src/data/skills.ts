@@ -6,31 +6,36 @@ export interface SkillGroup {
 // @doc SKILL-DATA
 export const skillGroups: SkillGroup[] = [
   {
-    title: 'Frontend',
+    title: 'Languages',
+    items: ['PHP', 'JavaScript', 'TypeScript', 'Python', 'SQL', 'HTML and CSS'],
+  },
+  {
+    title: 'Frameworks and Libraries',
     items: [
-      'HTML and CSS',
-      'JavaScript and TypeScript',
+      'Laravel and Laravel Sanctum',
       'React',
+      'Next.js',
+      'Inertia.js',
       'Tailwind CSS',
-      'Responsive layouts',
+      'Vite',
+    ],
+  },
+  { title: 'Data and APIs', items: ['MySQL', 'REST APIs', 'Postman'] },
+  {
+    title: 'Tools',
+    items: [
+      'Git, GitHub, and GitLab',
+      'Docker',
+      'Figma',
+      'Visual Studio Code',
+      'LibreSprite',
     ],
   },
   {
-    title: 'Backend',
+    title: 'Certification',
     items: [
-      'PHP and Laravel',
-      'REST API fundamentals',
-      'Database integration',
-      'Request and response handling',
-    ],
-  },
-  {
-    title: 'Development Tools',
-    items: [
-      'Git and GitHub',
-      'VS Code',
-      'Vite and npm',
-      'Browser debugging tools',
+      'Information Technology Specialist: Python (Certiport), November 2025',
+      'Verification code: Jp5U-4wb2',
     ],
   },
 ]

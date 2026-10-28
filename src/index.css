@@ -1,12 +1,16 @@
+@import '@pxlkit/ui-kit/styles.css';
 
-@import "@pxlkit/ui-kit/styles.css";
+@theme static {
+  --color-void: #080b1e;
+  --color-starlight: #f4f0ff;
+  --color-nebula: #b99cf6;
+  --color-glint: #dcd7ff;
+  --color-constellation: #969cf4;
+}
 
 :root {
-  font-family: "Pixelify Sans Variable", sans-serif;
+  font-family: 'Pixelify Sans Variable', sans-serif;
   color-scheme: dark;
-
-  /* @doc WINDOW-HEIGHT */
-  --window-height: min(70dvh, 620px);
 }
 
 * {

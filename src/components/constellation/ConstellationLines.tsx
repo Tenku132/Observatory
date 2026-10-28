@@ -1,14 +1,8 @@
-
-import {
-  constellationConnections,
-  stars,
-} from '../../data/constellation'
+import { constellationConnections, stars } from '../../data/constellation'
 
 // @doc SVG-CONNECTIONS
 function ConstellationLines() {
-  const starById = new Map(
-    stars.map((star) => [star.id, star]),
-  )
+  const starById = new Map(stars.map((star) => [star.id, star]))
 
   return (
     <svg
@@ -32,7 +26,7 @@ function ConstellationLines() {
             y1={from.y}
             x2={to.x}
             y2={to.y}
-            stroke="#969CF4"
+            className="stroke-constellation"
             strokeOpacity="0.65"
             strokeWidth="1.25"
             vectorEffect="non-scaling-stroke"

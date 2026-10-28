@@ -4,9 +4,48 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tenku's Starboard</title>
+
+    <!-- Search results: the blue link text and the grey snippet below it. -->
+    <title>Ian’s Observatory | Ian Benedict Diaz, Full-Stack Developer</title>
+    <meta
+      name="description"
+      content="Ian Benedict Diaz is an entry-level full-stack developer working with Laravel, React, and TypeScript. Explore the interactive pixel-art portfolio, Observatory."
+    />
+    <meta name="author" content="Ian Benedict Diaz" />
+
+    <!-- Browser UI color on mobile, and a hint that the site is dark. -->
+    <meta name="theme-color" content="#080b1e" />
+    <meta name="color-scheme" content="dark" />
+
+    <!-- Link previews (Open Graph): Discord, Slack, LinkedIn, WhatsApp, X. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Ian’s Observatory" />
+    <meta
+      property="og:title"
+      content="Ian Benedict Diaz | Full-Stack Developer"
+    />
+    <meta
+      property="og:description"
+      content="An interactive pixel-art portfolio. Pick a star to explore."
+    />
+    <meta name="twitter:card" content="summary" />
+
+    <!--
+      TODO when deployed (these need the real URL):
+      <link rel="canonical" href="https://YOUR-DOMAIN/" />
+      <meta property="og:url" content="https://YOUR-DOMAIN/" />
+      <meta property="og:image" content="https://YOUR-DOMAIN/og-image.png" />
+      Then change twitter:card to "summary_large_image".
+    -->
   </head>
   <body>
+    <noscript>
+      <h1>Ian Benedict Diaz — Full-Stack Developer</h1>
+      <p>
+        This portfolio is interactive and needs JavaScript to run. Please enable
+        JavaScript to explore it.
+      </p>
+    </noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
