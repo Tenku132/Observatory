@@ -10,10 +10,9 @@ const TILE_PX = TILE_SIZE * PIXEL_SCALE // screen pixels one tile spans
 
 // Farthest first. `seconds` is how long a layer takes to slide exactly one tile.
 const layers = [
-  // { name: 'nebula', seconds: 320 },
-  { name: 'far', seconds: 200 },
-  { name: 'mid', seconds: 120 },
-  { name: 'near', seconds: 70 },
+  { name: 'far', seconds: 65 },
+  { name: 'mid', seconds: 42 },
+  { name: 'near', seconds: 34 },
 ] as const
 
 function StarfieldBackground() {
@@ -46,7 +45,7 @@ function StarfieldBackground() {
       <button
         type="button"
         onClick={() => setPaused((current) => !current)}
-        className="fixed bottom-4 left-4 z-20 border-2 border-retro-border bg-retro-surface/80 px-3 py-1 text-xs tracking-widest text-starlight transition-colorsfocus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-glint motion-reduce:hidden"
+        className="fixed bottom-4 left-4 z-20 border-2 border-retro-border bg-retro-surface/80 px-3 py-1 text-xs tracking-widest text-starlight focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-glint motion-reduce:hidden"
       >
         {paused ? 'PLAY STARS' : 'PAUSE STARS'}
       </button>
