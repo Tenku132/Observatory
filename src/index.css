@@ -1,7 +1,7 @@
 @import '@pxlkit/ui-kit/styles.css';
 
 @theme static {
-  --color-void: #080b1e;
+  --color-void: #01020a;
   --color-starlight: #f4f0ff;
   --color-nebula: #b99cf6;
   --color-glint: #dcd7ff;
@@ -70,5 +70,38 @@ body {
   .starfield-window-enter,
   .starfield-window-exit {
     animation-duration: 1ms;
+  }
+}
+
+/* @doc STARFIELD-LAYERS
+   Each layer is one repeating tile, larger than the screen by one tile on two
+   sides, that slides exactly one tile diagonally per loop. The tile repeats
+   every --tile pixels, so the end of the loop looks identical to the start and
+   never visibly jumps. Only transform animates, which the GPU handles. */
+.starfield-layer {
+  position: absolute;
+  top: calc(var(--tile) * -1);
+  left: 0;
+  width: calc(100% + var(--tile));
+  height: calc(100% + var(--tile));
+  background-repeat: repeat;
+  background-size: var(--tile) var(--tile);
+  image-rendering: pixelated;
+  animation: starfield-drift linear infinite;
+}
+
+@keyframes starfield-drift {
+  to {
+    transform: translate3d(calc(var(--tile) * -1), var(--tile), 0);
+  }
+}
+
+.starfield-paused .starfield-layer {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .starfield-layer {
+    animation: none;
   }
 }

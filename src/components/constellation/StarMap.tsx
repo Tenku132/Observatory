@@ -15,7 +15,7 @@ function StarMap({ openStarIds, onSelectStar }: StarMapProps) {
       aria-label="Portfolio constellation"
       className="absolute inset-0"
     >
-      <ConstellationLines />
+      <ConstellationLines openStarIds={openStarIds} />
 
       {stars.map((star) => (
         <Star
